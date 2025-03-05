@@ -24,8 +24,6 @@ public class Pickups : MonoBehaviour
 
                 Destroy(gameObject);
 
-
-
             }
 
             if(isHeart){
