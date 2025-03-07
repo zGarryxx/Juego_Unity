@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MovePlataform : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Start se encarga de iniciar el juego
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    // Update se encarga de actualizar el juego
     void Update()
     {
         

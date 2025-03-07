@@ -12,12 +12,13 @@ public class CameraController : MonoBehaviour
 
 
 
+    // Este metodo Start se llama antes de la primera actualización del frame
     void Start()
     {
         lastPos = transform.position;
     }
 
-   
+   // Aqui update l oque hace es mover la camara y el fondo
     void Update()
     {
        // transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);

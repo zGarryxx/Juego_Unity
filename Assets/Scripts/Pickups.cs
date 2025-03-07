@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Pickups : MonoBehaviour
 {
+
+    // Estas variables son para los pickups
     public bool isGem , isHeart;
-    
     private bool isCollectect;
     public GameObject efectCollect;
+
+    // OnTriggerEnter2D se encarga de verificar si el jugador entra en contacto con el pickup
     private void OnTriggerEnter2D(Collider2D other) {
+
+        // Si el jugador entra en contacto con el pickup, se verifica si es una gema o un corazon
         if(other.tag == "Player"){
             if(isGem){
 
@@ -26,6 +31,7 @@ public class Pickups : MonoBehaviour
 
             }
 
+            // Si el jugador entra en contacto con el pickup, se verifica si es una gema o un corazon
             if(isHeart){
                 if(PlayerVidaController.instance.currentHealth != PlayerVidaController.instance.maxHealt){
                     PlayerVidaController.instance.HealfPlayer();

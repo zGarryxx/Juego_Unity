@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    // PlaySoundEffects reproduce el sonido de los efectos de sonido
     public void PlaySoundEffects(int sountToPlay){
 
         soundEfect[sountToPlay].Stop();

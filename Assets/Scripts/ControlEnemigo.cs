@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
+    // Las variables publicas se pueden modificar desde el inspector de Unity
     public float movSpeed = 3f;
     public Transform leftPoint,rigthPoint;
     private bool movingRight;
@@ -14,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private float moveCount, waitCount;
     public Animator animator;
     
+    // Start se llama antes de la primera actualización del frame
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,7 +28,7 @@ public class EnemyController : MonoBehaviour
         moveCount = moveTime;
     }
 
-   
+   // El metodo Update aqui lo que hace es mover al enemigo de un punto a otro
     void Update()
     {
         if(moveCount > 0){
@@ -51,7 +53,6 @@ public class EnemyController : MonoBehaviour
             if(transform.position.x < leftPoint.position.x){
                 movingRight = true;
             }
-
         }
         if(moveCount <= 0){
             waitCount = Random.Range(waitTime * .75f, waitTime * 1.25f);
@@ -59,6 +60,7 @@ public class EnemyController : MonoBehaviour
 
         
 
+    // Si el enemigo no se mueve, entonces se detiene
     }else if(waitCount > 0){
 
          animator.SetBool("isMoving", false);
@@ -68,7 +70,6 @@ public class EnemyController : MonoBehaviour
         if(waitCount <= 0){
             moveCount = Random.Range(moveTime * .75f, waitTime * 1.25f);
         }
-       
     }
 }
        

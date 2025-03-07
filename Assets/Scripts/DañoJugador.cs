@@ -18,6 +18,7 @@ public class PlayerDamage : MonoBehaviour
         
     }
 
+    // OnTriggerEnter2D se llama cuando otro objeto entra en un objeto con Collider2D
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag == "Player"){
             PlayerVidaController.instance.DealDamage();

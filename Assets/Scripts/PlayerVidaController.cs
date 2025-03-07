@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerVidaController : MonoBehaviour
 {  
 
+    // Estas variables son para que el jugador tenga una vida y se pueda morir
     public static PlayerVidaController instance;
     private void Awake() {
         instance = this;
@@ -15,6 +16,7 @@ public class PlayerVidaController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public GameObject deadEffect;
     
+    // Start se llama antes de la primera actualización del marco
     void Start()
     {
         currentHealth = maxHealt;
@@ -22,6 +24,7 @@ public class PlayerVidaController : MonoBehaviour
     }
 
 
+    // Update aqui se llama una vez por fotograma y se encarga de actualizar la lógica del juego
     void Update()
     {
         if(timeInvencible > 0){
@@ -33,12 +36,17 @@ public class PlayerVidaController : MonoBehaviour
         }
     }
 
+    // Esta función se encarga de quitarle vida al jugador
     public void DealDamage(){
+
+        // Si el tiempo invencible es menor o igual a 0, entonces
         if(timeInvencible <= 0){
 
           currentHealth --;
           PlayerCoontroller.instance.Ani.SetTrigger("Damage");
           AudioManager.instance.PlaySoundEffects(9);
+
+        //  Si la vida del jugador es menor o igual a 0, entonces se activa la animación de muerte y se llama a la función RespawnPlayer
         if(currentHealth <= 0){
 
             currentHealth = 0;
@@ -58,6 +66,7 @@ public class PlayerVidaController : MonoBehaviour
       
     }
 
+    // Esta función se encarga de curar al jugador
     public void HealfPlayer(){
         currentHealth ++;
 

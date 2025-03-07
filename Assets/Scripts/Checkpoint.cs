@@ -9,6 +9,7 @@ public class Checkpoint : MonoBehaviour
     public Sprite CPon , CPoff;
 
    
+// OnTriggerEnter2D se llama cuando otro objeto entra en un objeto con Collider2D
 private void OnTriggerEnter2D(Collider2D other) {
     if(other.tag == "Player"){
         CheckpointController.instance.DesactivateCheckpoint();
@@ -17,6 +18,7 @@ private void OnTriggerEnter2D(Collider2D other) {
     }
 }
 
+// ResetCheckpoint se encarga de resetear el checkpoint
 public void ResetCheckpoint(){
     SR.sprite = CPoff;
 }

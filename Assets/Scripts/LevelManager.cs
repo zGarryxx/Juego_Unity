@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
 
+    // Estas variables son para el respawn del personaje
     public static LevelManager instance;
     private void Awake() {
         instance = this;
@@ -23,10 +24,12 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    // El metodo RespawnPlayer() se encarga de hacer reaparecer al jugador en el punto de control
     public void RespawnPlayer(){
       StartCoroutine(RespawnCO());
     }
 
+    // El metodo RespawnCO() es un metodo que se encarga de hacer reaparecer al jugador en el punto de control
     IEnumerator RespawnCO(){
 
         PlayerCoontroller.instance.gameObject.SetActive(false);
